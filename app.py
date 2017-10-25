@@ -1,29 +1,33 @@
-from flask import Flask, render_template,request
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
 from scipy.misc import imsave, imread, imresize
 import numpy as np
-import keras.models
-import re
+# import keras.models
+# import re
 
 import base64
-import sys 
-import os
-sys.path.append(os.path.abspath("./model"))
 
-import load as load_model
+import sys, os, io
+sys.path.append(os.path.abspath('./model'))
+
+# import load as load_model
+# global model, graph
+# model, graph = load_model.init()
 
 app = Flask(__name__)
-global model, graph
-model, graph = load_model.init()
-
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict', methods=['POST'])
 def predict():
-	#whenever the predict method is called, we're going
-	#to input the user drawn character as an image into the model
-	#perform inference, and return the classification
-	#get the raw data format of the image
-	imgData = request.get_data()
+	formFile = request.files.get('file')
+	img = imread(formFile)
+	print(img.shape)
+	return jsonify({ "len": len(img) })
+
+def predict2():
+	# imgData = request.get_data()
+	imgData = request.form['img']
 	#encode it into a suitable format
 	convertImage(imgData)
 	print("debug")
