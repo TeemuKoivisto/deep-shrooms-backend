@@ -32,6 +32,8 @@ Example:
 
 Run the development server on localhost:9000 with `./dev`.
 
+Run the production server on localhost:9000 with `./prod`.
+
 NOTE: You have to have also the frontend server running.
 
 It will automatically refresh on any changes to the source code.
@@ -40,5 +42,5 @@ It will automatically refresh on any changes to the source code.
 
 You can probably install the same requirements as in `requirements.txt` with:
 ```
-pip install keras tensorflow flask flask-cors h5py
+pip install keras tensorflow flask flask-cors h5py gunicorn
 ```
