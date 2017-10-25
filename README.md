@@ -30,9 +30,11 @@ Example:
 7) Follow the installation instructions on the `deep-shrooms-frontend`
 8) And you're done!
 
-Run the development server on localhost:9000 with `./dev`.
+Run the development server on localhost:9000 with `./dev.sh`.
 
-Run the production server on localhost:9000 with `./prod`.
+Production server uses `pm2` for running the app as a daemon. You can install it with `npm i -g pm2`.
+
+To run the production server on localhost:9000 with `pm2 start ./prod.sh`.
 
 NOTE: You have to have also the frontend server running.
 
