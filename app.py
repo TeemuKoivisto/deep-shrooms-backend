@@ -22,6 +22,10 @@ def generate_input_image(img_array):
 	X = X/255.0
 	return X
 
+@app.route('/', methods=['GET'])
+def frontpage():
+	return 'Hi. This is the backend-server for deep-shrooms'
+
 @app.route('/predict', methods=['POST'])
 def predict():
 	if 'multipart/form-data' not in request.headers['Content-Type']:
