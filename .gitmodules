@@ -1,0 +1,3 @@
+[submodule "deep-shrooms-frontend"]
+	path = deep-shrooms-frontend
+	url = https://github.com/teemukoivisto/deep-shrooms-frontend.git

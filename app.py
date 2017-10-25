@@ -12,7 +12,7 @@ import load as load_model
 global model, graph
 model, graph = load_model.init()
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='deep-shrooms-frontend/build')
 cors = CORS(app, resources={r"*": {"origins": "*"}})
 
 def generate_input_image(img_array):
@@ -24,9 +24,9 @@ def generate_input_image(img_array):
 
 @app.route('/', methods=['GET'])
 def frontpage():
-	return 'Hi. This is the backend-server for deep-shrooms'
+	return app.send_static_file('index.html')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 def predict():
 	if 'multipart/form-data' not in request.headers['Content-Type']:
 		return "Content-Type wasn't 'multipart/form-data'", 400
