@@ -9,7 +9,9 @@ Flask-backend for our Keras/Tensorflow model that predicts mushrooms based on pi
 
 ### POST `/predict`
 Params: `.jpg` file as `multipart/form-data`
+
 Returns: JSON-object that has prediction value on its edibility 0 being unedible and 1 edible.
+
 Example:
 ```
 {
@@ -19,13 +21,24 @@ Example:
 
 ## How to install
 
-1) First install Python >3.5
+1) First install Python >=3.5
 2) You should have now pip so then install virtualenv: `pip install virtualenv` (or `pip3 install virtualenv` if you have also Python 2 installed eg. Mac OS X)
 3) Create virtualenv environment: `virtualenv <name>`
 4) Activate that environment: `source ./<name>/bin/activate`
-5) Install requirements: `pip install -r requirements.txt`
-6) And you're done!
+5) Clone this repository including the frontend with: `git clone --recursive https://github.com/TeemuKoivisto/deep-shrooms-backend`
+6) Install requirements: `pip install -r requirements.txt`
+7) Follow the installation instructions on the `deep-shrooms-frontend`
+8) And you're done!
 
 Run the development server on localhost:9000 with `./dev`.
 
+NOTE: You have to have also the frontend server running.
+
 It will automatically refresh on any changes to the source code.
+
+## Detailed list of dependencies
+
+You can probably install the same requirements as in `requirements.txt` with:
+```
+pip install keras tensorflow flask flask-cors h5py
+```
