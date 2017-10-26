@@ -28,7 +28,7 @@ def frontpage():
 
 @app.route('/api/predict', methods=['POST'])
 def predict():
-	if 'multipart/form-data' not in request.headers['Content-Type']:
+	if 'Content-Type' not in request.headers or 'multipart/form-data' not in request.headers['Content-Type']:
 		return "Content-Type wasn't 'multipart/form-data'", 400
 	try:
 		formFile = request.files['file']
