@@ -5,6 +5,8 @@
 
 Flask-backend for our Keras/Tensorflow model that predicts mushrooms based on pictures.
 
+[Running instance](https://teekoivi.users.cs.helsinki.fi/)
+
 ## API
 
 ### POST `/predict`
