@@ -67,7 +67,7 @@ DOWNLOAD_DELAY = 3
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
   'lp_scraper.pipelines.LPImagePipeline': 1,
-  'lp_scraper.pipelines.JsonWriterPipeline': 2,
+  'lp_scraper.pipelines.LPCsvWriterPipeline': 2,
 }
 
 IMAGES_STORE = './output/lp_mushroom_img'

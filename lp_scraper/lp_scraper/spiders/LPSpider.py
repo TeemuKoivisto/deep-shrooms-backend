@@ -19,9 +19,18 @@ class LPSpider(scrapy.Spider):
     
     for i, img_link in enumerate(response.css('div#kuvat a')):
       link_url = response.urljoin(img_link.css('::attr(href)').extract_first().strip())
-      name_img = "{}{}.jpg".format(latin_formatted, i)
-      yield ImageItem(name_latin=name_latin, name_fin=name_fin, edibility=edibility,
-        name_img=name_img, img_url=link_url)
+      # Picks last 4 characters from the link -> 1.jpg / .jpeg / 1.png
+      # And then splits them by "." and takes the last item from the list
+      img_ext = link_url[-4:].split('.')[-1].lower()
+      name_img = "{}{}.{}".format(latin_formatted, i, img_ext)
+      img_dict = {
+        'name_latin': name_latin,
+        'name_fin': name_fin,
+        'edibility': edibility,
+        'name_img': name_img,
+        'img_url': link_url,
+      }
+      yield ImageItem(img_dict)
 
     # List of links, only 1 in the first and the last page (of all mushrooms), otherwise 2
     nav_links = response.css('div.float_l a[rel=prev]')

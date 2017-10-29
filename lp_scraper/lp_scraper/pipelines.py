@@ -33,7 +33,7 @@ class LPImagePipeline(ImagesPipeline):
     else:
       return item
 
-class JsonWriterPipeline(object):
+class LPCsvWriterPipeline(object):
   def open_spider(self, spider):
     self.file_classes = open('output/lp_mushroom_classes.csv', 'w')
     self.file_imgs = open('output/lp_mushroom_imgs.csv', 'w')
