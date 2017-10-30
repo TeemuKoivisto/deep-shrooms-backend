@@ -6,7 +6,7 @@ TARGET_DIR=$1
 ZIP_NAME=$2
 PROFILE=$3
 
-if [ -z "$ZIP_NAME" ]; then
+if [ -z "$TARGET_DIR" ]; then
   echo "Missing first argument TARGET_DIR. It should be the target folder you're trying to deploy."
   exit 0
 fi
