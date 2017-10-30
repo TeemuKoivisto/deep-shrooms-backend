@@ -14,6 +14,7 @@ You need to have aws-cli and Imagemagick installed.
 
 After scraping the images you want to first resize them. I am using default 256x256 size.
 
-So simply just run: `./resize.sh output tmp` to resize all images inside `output`-folder to new folder `tmp`.
+So simply just run: `./resize.sh output tmp lp_mushroom_img` to resize all images inside `output/lp_mushroom_img`-folder to a new folder called `tmp`.
 
-Then to send that folder as zip-file to S3 use: `./deploy.sh tmp luontoportti_2017_10_30 deepshroom` to zip the folder into a file `luontoportti_2017_10_30.zip` which is then sent to s3 `deep-shrooms`-bucket using AWS-profile `deepshroom` (you have to configure it to `~/.aws/credentials`).
+Then to send that folder as zip-file to S3 use: `./deploy.sh tmp luontoportti_2017_10_30 deepshroom` (NOTE: don't use same output folder-name since the script first copies the folder before zipping)  
+That will zip the folder into a file `luontoportti_2017_10_30.zip` which is then sent to S3 `deep-shrooms`-bucket using AWS-profile `deepshroom` (you have to configure it to `~/.aws/credentials`).
