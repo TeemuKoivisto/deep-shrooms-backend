@@ -29,7 +29,7 @@ rm -r ./$ZIP_NAME
 
 aws s3 cp ./$ZIP_NAME.zip s3://deep-shrooms \
   --region eu-central-1 \
-  --acl bucket-owner-full-control \
+  --acl public-read \
   --cache-control max-age=2592000 \
   --profile $PROFILE
 
