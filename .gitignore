@@ -1,4 +1,6 @@
 resized.jpg
+model/weights.h5
+model/model.json
 lp_scraper/output
 lp_scraper/tmp
 data/
